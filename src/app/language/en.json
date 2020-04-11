@@ -451,5 +451,14 @@
 	"Enable VPN": "Enable VPN",
 	"Popularity": "Popularity",
 	"Last Added": "Last Added",
-	"Seedbox": "Seedbox"
+	"Seedbox": "Seedbox",
+	"comedy": "comedy",
+	"fantasy": "fantasy",
+	"adventure": "adventure",
+	"music": "music",
+	"Health Good": "Health Good",
+	"Stream Url": "Stream Url",
+	"Right click to copy": "Right click to copy",
+	"Show playback controls": "Show playback controls",
+	"Downloading": "Downloading"
 }
