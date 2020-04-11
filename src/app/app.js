@@ -93,7 +93,13 @@ App.db = Database;
 // Set settings
 App.advsettings = AdvSettings;
 App.settings = Settings;
-App.WebTorrent = new WebTorrent();
+App.WebTorrent = new WebTorrent({
+  maxConns: parseInt(Settings.connectionLimit, 10) || 55,
+  tracker: {
+     announce: Settings.trackers.forced
+  },
+  dht: true
+});
 
 fs.readFile("./.git.json", "utf8", function (err, json) {
   if (!err) {
@@ -201,11 +207,8 @@ App.onStart = function (options) {
 };
 
 var deleteFolder = function (path) {
-  try {
-    rimraf(path, function () { });
-  } catch (error) {
-    console.log(error)
-  }
+
+  rimraf.sync(path);
 };
 
 var deleteCookies = function () {
@@ -658,7 +661,7 @@ window.ondrop = function (e) {
   $(".drop-indicator").hide();
 
   var file = e.dataTransfer.files[0];
-  var ext = path.extname(file.name).toLowerCase();
+  var ext = path.extname((file || {}).name || "").toLowerCase();
 
   // TODO: Make a function 'isSubtitleFile' to avoid having many || everywhere
   if (

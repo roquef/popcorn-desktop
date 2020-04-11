@@ -11,11 +11,12 @@
   },
   "license": "GPL-3.0",
   "main": "src/app/index.html",
-  "version": "0.4.0",
+  "version": "0.4.3",
   "releaseName": "Love in the Time of Corona",
   "scripts": {
     "start": "gulp run",
     "build": "gulp build",
+    "clean": "gulp clean",
     "test": "gulp test"
   },
   "chromium-args": "--remote-debugging-port=9222 --enable-node-worker",
@@ -51,7 +52,7 @@
     "bootstrap": "~3.3.7",
     "butter-provider": "0.11.0",
     "butter-sanitize": "^0.1.1",
-    "butter-settings-popcorntime.io": "0.0.1",
+    "butter-settings-popcorntime.io": "0.0.3",
     "chromecasts": "1.9.1",
     "defer-request": "0.0.3",
     "dlnacasts2": "0.1.2",
@@ -90,11 +91,11 @@
     "trakt.tv-images": "5.x.x",
     "trakt.tv-matcher": "7.x.x",
     "trakt.tv-ondeck": "7.x.x",
-    "underscore": ">=1.x.x",
+    "underscore": "^1.8.3",
     "urijs": "1.19.1",
-    "video.js": "7.3.x",
-    "videojs-youtube": "2.6.0",
-    "webtorrent": "^0.107.6",
+    "video.js": "4.11.4",
+    "videojs-youtube": "1.2.10",
+    "webtorrent": "^0.107.16",
     "webtorrent-health": "1.x.x"
   },
   "devDependencies": {

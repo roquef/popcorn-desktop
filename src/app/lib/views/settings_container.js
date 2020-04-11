@@ -248,6 +248,10 @@
                 case 'indieTabDisable':
                     value = field.is(':checked');
                     break;
+                case 'httpApiEnabled':
+                    apiDataChanged = true;
+                    value = field.is(':checked');
+                    break;
                 case 'httpApiUsername':
                 case 'httpApiPassword':
                     apiDataChanged = true;
@@ -256,6 +260,7 @@
                 case 'connectionLimit':
                 case 'streamPort':
                 case 'subtitle_color':
+                case 'maxActiveTorrents':
                     value = field.val();
                     break;
                 case 'tmpLocation':
@@ -317,6 +322,7 @@
                         $('.advanced').css('display', 'none');
                     }
                     break;
+                case 'vpnEnabled':
                 case 'language':
                 case 'watchedCovers':
                     App.vent.trigger('movies:list');
@@ -345,6 +351,7 @@
                     } else {
                         $('#torrent_col').css('display', 'none');
                         App.vent.trigger('torrentCollection:close');
+                        App.vent.trigger('seedbox:close');
                     }
                     break;
                 case 'animeTabDisable':
@@ -458,9 +465,12 @@
                 var OpenSubtitles = new OS({
                     useragent: Settings.opensubtitles.useragent + ' v' + (Settings.version || 1),
                     username: usn,
-                    password: Common.md5(pw)
+                    password: Common.md5(pw),
+                    ssl: true
                 });
-
+                function delay(ms) {
+                  return new Promise(resolve => setTimeout(resolve, ms));
+                };
                 OpenSubtitles.login()
                     .then(function (obj) {
                         if (obj.token) {
@@ -470,11 +480,11 @@
                             $('.opensubtitles-options .loading-spinner').hide();
                             $('.opensubtitles-options .valid-tick').show();
                             win.info('Setting changed: opensubtitlesAuthenticated - true');
-                            return;
+                            return new Promise(resolve => setTimeout(resolve, 1000));
                         } else {
                             throw new Error('no token returned by OpenSubtitles');
                         }
-                    }).delay(1000).then(function () {
+                    }).then(function () {
                         self.render();
                     }).catch(function (err) {
                         win.error('OpenSubtitles.login()', err);
@@ -575,7 +585,8 @@
 
         moveTmpLocation: function (location) {
             if (!fs.existsSync(location)) {
-                fs.mkdir(location);
+                fs.mkdirSync(location);
+                fs.mkdirSync(location + '/TorrentCache');
             }
             if (App.settings['deleteTmpOnClose']) {
                 deleteFolder(oldTmpLocation);

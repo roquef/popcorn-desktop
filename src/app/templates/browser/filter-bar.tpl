@@ -63,7 +63,10 @@
             </form>
         </div>
     </li>
-
+    <!-- Favorites -->
+    <li>
+        <i id="filterbar-favorites" class="fa fa-heart favorites tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("Favorites") %>"></i>
+    </li>
     <!-- Watchlist -->
     <% if (Settings.activateWatchlist) { %>
     <li style="display:block">
@@ -85,6 +88,11 @@
     <!-- About -->
     <li>
         <i id="filterbar-about" class="fa fa-info-circle about tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("About") %>"></i>
+    </li>
+
+    <!-- Seedbox -->
+    <li>
+        <i id="filterbar-seedbox" class="fa fa-download about tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("Seedbox") %>"></i>
     </li>
 
     <!-- Settings -->

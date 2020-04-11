@@ -12,7 +12,7 @@
 
 Allow any user to easily watch movies through torrent streaming, without any prerequisites.
 
-Visit the project's website at <https://popcorntime.sh>.
+Visit the project's website at <https://popcorntime.app>.
 
 ***
 
@@ -20,7 +20,12 @@ Visit the project's website at <https://popcorntime.sh>.
 
 #### macOS:
 
-Easily install Popcorn Time via _[Homebrew](https://brew.sh) ([Cask](https://github.com/Homebrew/homebrew-cask#homebrew-cask))_ with `brew cask install https://raw.githubusercontent.com/popcorn-official/popcorn-desktop/development/casks/popcorn-time.rb`, or `brew cask install https://raw.githubusercontent.com/popcorn-official/popcorn-desktop/development/casks/popcorn-time-beta.rb` for the latest [stable] beta build.
+Easily install Popcorn Time via _[Homebrew](https://brew.sh) ([Cask](https://github.com/Homebrew/homebrew-cask#homebrew-cask))_ with `brew cask install https://raw.githubusercontent.com/popcorn-official/popcorn-desktop/development/casks/popcorn-time.rb`, or `brew cask install https://raw.githubusercontent.com/popcorn-official/popcorn-desktop/development/casks/popcorn-time-beta.rb` for the latest [stable] beta build. Also, if you keep a [_Brewfile_](https://github.com/Homebrew/homebrew-bundle#usage), you can add something like this:
+~~~ rb
+repo = 'popcorn-official/popcorn-desktop'
+tap repo, "https://github.com/#{repo}.git"
+cask 'popcorn-time'
+~~~
 
 ## Getting Involved
 
@@ -30,20 +35,18 @@ Want to report a bug, request a feature, contribute to or translate Popcorn Time
 
 If you're comfortable getting up and running from a `git clone`, this method is for you.
 
-If you clone the GitHub repository, you will need to build a number of assets using grunt.
-
 The [master](https://github.com/popcorn-official/popcorn-desktop) branch which contains the latest release.
 
 #### Quickstart:
 
-1. `yarn gulp run`
+1. `yarn start`
 
 If you encounter trouble with the above method, you can try:
 
 1. `yarn config set yarn-offline-mirror ./node_modules/`
 2. `yarn install --ignore-engines`
 3. `yarn build`
-5. `yarn gulp run`
+5. `yarn start`
 
 Optionally, you may simply run `./make_popcorn.sh` if you are on a linux or mac based operating system.
 
@@ -77,6 +80,19 @@ Constructed with the following guidelines:
 * A new *minor* release indicates a normal change that maintains backward compatibility.
 * A new *patch* release indicates a bugfix or small change which does not affect compatibility.
 * A new *build* release indicates this is a pre-release of the version.
+
+
+
+## Archive Links for older installations
+v3.10.0
+* [Popcorn-Time-0.3.10-win32-Setup.exe](https://ci.popcorntime.app/job/Popcorn-Time-Desktop/200/artifact/build/Popcorn-Time-0.3.10-win32-Setup.exe)  58.90 MB
+* [Popcorn-Time-0.3.10-win64-Setup.exe](https://ci.popcorntime.app/job/Popcorn-Time-Desktop/200/artifact/build/Popcorn-Time-0.3.10-win64-Setup.exe)  67.67 MB
+* [Popcorn-Time-0.3.10_linux32.tar.xz](https://ci.popcorntime.app/job/Popcorn-Time-Desktop/200/artifact/build/Popcorn-Time-0.3.10_linux32.tar.xz)  63.10 MB
+* [Popcorn-Time-0.3.10_linux64.tar.xz](https://ci.popcorntime.app/job/Popcorn-Time-Desktop/200/artifact/build/Popcorn-Time-0.3.10_linux64.tar.xz)  60.48 MB
+* [Popcorn-Time-0.3.10_osx64.tar.xz](https://ci.popcorntime.app/job/Popcorn-Time-Desktop/200/artifact/build/Popcorn-Time-0.3.10_osx64.tar.xz)  50.43 MB
+* [popcorn-time_0.3.10-28112f678_amd64.deb](https://ci.popcorntime.app/job/Popcorn-Time-Desktop/200/artifact/build/popcorn-time_0.3.10-28112f678_amd64.deb)  61.60 MB
+* [popcorn-time_0.3.10-28112f678_i386.deb](https://ci.popcorntime.app/job/Popcorn-Time-Desktop/200/artifact/build/popcorn-time_0.3.10-28112f678_i386.deb)  65.17 MB
+
 
 
 ***

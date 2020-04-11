@@ -91,18 +91,16 @@ Settings.providers = {
 Settings.trackers = {
   blacklisted: ["demonii"],
   forced: [
-    "udp://tracker.leechers-paradise.org:6969/announce",
-    "udp://tracker.coppersurfer.tk:6969/announce",
-    "udp://glotorrents.pw:6969/announce",
-    "udp://exodus.desync.com:6969/announce",
-    "udp://tracker.opentrackr.org:1337/announce",
-    "udp://9.rarbg.com:2710/announce",
-    "udp://tracker.openbittorrent.com:80",
-    "udp://tracker.publicbt.com:80/announce",
-    "udp://tracker.empire-js.us:1337",
-    "wss://tracker.openwebtorrent.com",
-    "wss://tracker.fastcast.nz",
-    "wss://tracker.btorrent.xyz"
+    'udp://glotorrents.pw:6969/announce',
+    'udp://tracker.opentrackr.org:1337/announce',
+    'udp://torrent.gresille.org:80/announce',
+    'udp://tracker.openbittorrent.com:80',
+    'udp://tracker.coppersurfer.tk:6969',
+    'udp://tracker.leechers-paradise.org:6969',
+    'udp://p4p.arenabg.ch:1337',
+    'udp://tracker.internetwarriors.net:1337',
+    'wss://tracker.openwebtorrent.com',
+    'wss://tracker.btorrent.xyz'
   ]
 };
 
@@ -149,6 +147,7 @@ Settings.subtitle_decoration = "Outline";
 Settings.subtitle_font = "Arial";
 
 // More options
+Settings.httpApiEnabled = false;
 Settings.httpApiPort = 8008;
 Settings.httpApiUsername = "butter";
 Settings.httpApiPassword = "butter";
@@ -172,19 +171,20 @@ Settings.opensubtitlesPassword = "";
 // Advanced options
 Settings.connectionLimit = 55;
 Settings.streamPort = 0; // 0 = Random
-Settings.tmpLocation = path.join(os.tmpDir(), Settings.projectName);
+Settings.tmpLocation = path.join(os.tmpdir(), Settings.projectName);
 Settings.databaseLocation = path.join(data_path, "data");
 Settings.deleteTmpOnClose = true;
-Settings.continueSeedingOnStart = true;
+Settings.continueSeedingOnStart = false;
 Settings.vpnEnabled = true;
+Settings.maxActiveTorrents = 5;
 Settings.automaticUpdating = true;
-Settings.UpdateSeed = true;
+Settings.UpdateSeed = false;
 Settings.events = true;
 Settings.minimizeToTray = false;
 Settings.bigPicture = false;
 
 // Features
-Settings.activateTorrentCollection = true;
+Settings.activateTorrentCollection = false;
 Settings.activateWatchlist = true;
 Settings.activateRandomize = true;
 Settings.onlineSearchEngine = "ExtraTorrent";
