@@ -105,7 +105,7 @@
             self = this;
         },
         download: function (data) {
-            if (data.path && data.url) {
+            if (data?.path && data?.url) {
                 console.debug('Subtitle download url:', data.url);
                 var fileFolder = path.dirname(data.path);
 

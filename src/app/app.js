@@ -96,7 +96,7 @@ App.settings = Settings;
 App.WebTorrent = new WebTorrent({
   maxConns: parseInt(Settings.connectionLimit, 10) || 55,
   tracker: {
-     announce: Settings.trackers.forced
+    announce: Settings.trackers.forced
   },
   dht: true
 });
@@ -207,8 +207,11 @@ App.onStart = function (options) {
 };
 
 var deleteFolder = function (path) {
-
-  rimraf.sync(path);
+  try {
+    rimraf(path, { maxBusyTries: 10 });
+  } catch(err) {
+    console.log('Error deleting folder: ', err);
+  }
 };
 
 var deleteCookies = function () {
@@ -300,7 +303,7 @@ Mousetrap.bindGlobal(["alt+f4", "command+q"], function (e) {
   close();
 });
 // Developer Shortcuts
-Mousetrap.bindGlobal(["shift+f12", "f12", "command+0"], function (e) {
+Mousetrap.bindGlobal(["ctrl+shift+i", "shift+f12", "f12", "command+0"], function (e) {
   win.showDevTools();
 });
 Mousetrap.bindGlobal(["shift+f10", "f10", "command+9"], function (e) {

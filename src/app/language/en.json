@@ -460,5 +460,8 @@
 	"Stream Url": "Stream Url",
 	"Right click to copy": "Right click to copy",
 	"Show playback controls": "Show playback controls",
-	"Downloading": "Downloading"
+	"Downloading": "Downloading",
+	"Health Medium": "Health Medium",
+	"Enable remote control": "Enable remote control",
+	"Maximum number of active torrents": "Maximum number of active torrents"
 }
